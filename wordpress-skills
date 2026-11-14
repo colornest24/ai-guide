@@ -1,1 +1,92 @@
+# Installing WordPress Agent Skills for OpenAI Codex
+
+This guide explains how to install and use the official WordPress agent skills (`SKILL.md` modules) in OpenAI Codex.
+
+## Prerequisites
+
+* OpenAI Codex (CLI or Desktop App) installed on your machine.
+* Node.js **20.18+** (required if using the `npx` CLI installation methods).
+* Git (required if cloning the repository manually).
+
+---
+
+## Method 1: Quick Install via CLI (Recommended)
+
+You can install individual skills directly into your project or Codex environment using `npx`.
+
+### Using the `skills` CLI
+
+Run the following command in your terminal, replacing `<skill-name>` with the specific WordPress skill you want to add:
+
+```bash
+npx skills add wordpress/agent-skills --skill <skill-name>
+```
+
+**Examples:**
+
+```bash
+npx skills add wordpress/agent-skills --skill wp-playground
+npx skills add wordpress/agent-skills --skill wp-block-development
+```
+
+### Using Skills Hub CLI
+
+Alternatively, run the Skills Hub installer inside your project directory to download the `SKILL.md` file and track it in a `.skills.json` lockfile:
+
+```bash
+npx @skills-hub-ai/cli install <skill-slug>
+```
+
+---
+
+## Method 2: Manual Global Installation
+
+To make all official WordPress skills available across every project on your machine, copy them into your global Codex skills folder.
+
+1. **Create the Codex skills directory** (if it does not already exist):
+
+   ```bash
+   mkdir -p ~/.codex/skills
+   ```
+
+2. **Clone the official WordPress Agent Skills repository** into a temporary folder and copy the skill folders over:
+
+   ```bash
+   git clone https://github.com/WordPress/agent-skills.git /tmp/wp-skills
+   cp -r /tmp/wp-skills/skills/* ~/.codex/skills/
+   rm -rf /tmp/wp-skills
+   ```
+
+   > **Note:** If you have configured a custom `CODEX_HOME` environment variable, copy the folders to `$CODEX_HOME/skills/` instead.
+
+3. **Restart Codex** (CLI session or Desktop App) to detect and load the new skills.
+
+---
+
+## Available Official WordPress Skills
+
+| Skill Name | Purpose |
+| :--- | :--- |
+| `wp-playground` | Spins up local WordPress instances, tests PHP/WP versions, and runs Blueprints. |
+| `wp-block-development` | Assists with custom Gutenberg block creation, `block.json`, and React/PHP rendering. |
+| `wp-block-themes` | Guides Full Site Editing (FSE), `theme.json` configuration, templates, and patterns. |
+| `wp-plugin-development` | Enforces WordPress plugin lifecycle, security, sanitization, and directory standards. |
+| `wp-wpcli-and-ops` | Automates site management, database operations, and maintenance via WP-CLI. |
+| `wp-performance` | Assists with backend profiling, caching strategies, and database query optimization. |
+
+---
+
+## Usage in Codex
+
+Once installed, reference the skill naturally in your Codex prompts:
+
+* *"Use the `wp-playground` skill to spin up a clean WordPress 6.7 instance for testing."*
+* *"Audit this custom plugin for security and coding standards using `wp-plugin-development`."*
+* *"Help me configure typography presets in `theme.json` using `wp-block-themes`."*
+
+---
+
+## Managing Live WordPress Sites (Optional)
+
+The official `agent-skills` repository provides local development and coding workflows. If you want Codex to connect directly to a **live WordPress site** to publish posts, edit pages, or manage media, install a WordPress Model Context Protocol (MCP) connector plugin (such as Novamira or Respira) and register its MCP server endpoint in your Codex configuration.
 
