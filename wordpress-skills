@@ -90,3 +90,4 @@ Once installed, reference the skill naturally in your Codex prompts:
 
 The official `agent-skills` repository provides local development and coding workflows. If you want Codex to connect directly to a **live WordPress site** to publish posts, edit pages, or manage media, install a WordPress Model Context Protocol (MCP) connector plugin (such as Novamira or Respira) and register its MCP server endpoint in your Codex configuration.
 
+
