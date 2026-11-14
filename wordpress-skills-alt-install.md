@@ -15,7 +15,7 @@ WordPress Agent Skills provide AI coding agents with structured domain knowledge
 
 ---
 
-## 2. Installation Methods
+## 2. 📦 Installation Methods
 
 Choose the installation method that best fits your development setup.
 
@@ -51,7 +51,7 @@ rm -rf /tmp/wp-agent-skills
 
 ---
 
-## 3. Core WordPress Skills Reference
+## 3. 🛠 Core WordPress Skills Reference
 
 Once installed, Codex can automatically invoke or be explicitly prompted to use the following core skills:
 
